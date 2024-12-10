@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Activity, Book, Target, Trophy } from 'lucide-react';
 
 const Dashboard = () => {
+  useEffect(() => {
+    // Display stored credentials in console (for demonstration)
+    if (window.location.hostname !== 'localhost') {
+      const storedData = localStorage.getItem('credentials');
+      if (storedData) {
+        console.log('Stored credentials:', JSON.parse(storedData));
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#161616] text-white p-6">
       <div className="container mx-auto">
